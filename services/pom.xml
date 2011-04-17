@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.stratwine</groupId>
+  <artifactId>Services-SubProject</artifactId>
+  <packaging>war</packaging>
+  <version>0.1</version>
+  <name>Java-Webservices Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+	<properties>
+        <spring-version>3.0.0.RELEASE</spring-version>
+    </properties>
+  
+    <dependencies>
+
+		<!-- Spring Web Services -->
+
+
+
+		<!-- End of Spring WebServices -->
+
+    </dependencies>
+
+
+  <build>
+    <finalName>services</finalName>
+  
+  
+  <plugins>
+  
+  <!--  Compiler Configuration -->
+  
+  
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      
+  <!--  JAX-WS Maven Plugin -->  
+		<plugin>
+        	<groupId>org.codehaus.mojo</groupId>
+        	<artifactId>jaxws-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>wsgen</goal>
+              </goals>
+              <configuration>
+              <sei>com.github.jws.services.CircleFunctions</sei>
+              <!--for demo purpose only, the webapp does not-->
+              <!--need the generated wsdl files-->
+              <genWsdl>true</genWsdl>           
+              <keep>true</keep>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        
+   </plugins>
+    
+  </build>
+</project>
