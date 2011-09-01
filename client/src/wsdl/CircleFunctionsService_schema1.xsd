@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<xs:schema version="1.0" targetNamespace="http://services.jws.github.com/" 
+xmlns:tns="http://services.jws.github.com/" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+jaxb:extensionBindingPrefixes="xjc"
+jaxb:version="2.0">
+
+ <xs:annotation>
+    <xs:appinfo>
+      <jaxb:globalBindings>
+        <xjc:simple />
+      </jaxb:globalBindings>
+    </xs:appinfo>
+  </xs:annotation>
+    
+  <xs:element name="getArea" type="tns:getArea"/>
+
+  <xs:element name="getAreaResponse" type="tns:getAreaResponse"/>
+
+  <xs:element name="getCircle" type="tns:getCircle"/>
+
+  <xs:element name="getCircleResponse" type="tns:getCircleResponse"/>
+
+  <xs:element name="getCircumference" type="tns:getCircumference"/>
+
+  <xs:element name="getCircumferenceResponse" type="tns:getCircumferenceResponse"/>
+
+  <xs:complexType name="getArea">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAreaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCircle">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getCircleResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:circle" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="circle">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="radius" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCircumference">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCircumferenceResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

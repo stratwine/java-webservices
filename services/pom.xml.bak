@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.stratwine</groupId>
+  <artifactId>Services-SubProject</artifactId>
+  <packaging>war</packaging>
+  <version>0.1</version>
+  <name>Java-Webservices Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+
+  
+    <dependencies>
+
+		<!-- Spring Web Services -->
+
+		<dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>2.0.0-M1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
+            <version>2.0.0-M1</version>
+        </dependency>
+
+		<!-- End of Spring WebServices -->
+    </dependencies>
+
+
+  <build>
+    <finalName>services</finalName>
+  
+  
+  <!--  Compiler Configuration -->
+  <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  
+  
+  </build>
+</project>

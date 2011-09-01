@@ -8,7 +8,7 @@ public class PublishService {
 
  public static void main(String[] args) {
 	 System.out.println("Starting WS");
-	  Endpoint.publish("http://localhost:8085/ws", new CircleFunctions());
+	  Endpoint.publish("http://localhost:8096/ws", new CircleFunctions());
 	  System.out.println("Started WS");
 	  
 }

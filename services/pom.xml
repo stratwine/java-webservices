@@ -7,31 +7,31 @@
   <version>0.1</version>
   <name>Java-Webservices Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  
-	<properties>
-        <spring-version>3.0.0.RELEASE</spring-version>
-    </properties>
-  
-    <dependencies>
 
-		<!-- Spring Web Services -->
+  <properties>
+    <spring-version>3.0.0.RELEASE</spring-version>
+  </properties>
+
+  <dependencies>
+
+    <!-- Spring Web Services -->
 
 
 
-		<!-- End of Spring WebServices -->
+    <!-- End of Spring WebServices -->
 
-    </dependencies>
+  </dependencies>
 
 
   <build>
     <finalName>services</finalName>
-  
-  
-  <plugins>
-  
-  <!--  Compiler Configuration -->
-  
-  
+
+
+    <plugins>
+
+      <!-- Compiler Configuration -->
+
+
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
@@ -39,28 +39,52 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-      
-  <!--  JAX-WS Maven Plugin -->  
-		<plugin>
-        	<groupId>org.codehaus.mojo</groupId>
-        	<artifactId>jaxws-maven-plugin</artifactId>
-          <executions>
-            <execution>
-              <goals>
-                <goal>wsgen</goal>
-              </goals>
-              <configuration>
+
+      <!-- JAX-WS Maven Plugin -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxws-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>wsgen</goal>
+            </goals>
+            <configuration>
               <sei>com.github.jws.services.CircleFunctions</sei>
-              <!--for demo purpose only, the webapp does not-->
-              <!--need the generated wsdl files-->
-              <genWsdl>true</genWsdl>           
+              <!--for demo purpose only, the webapp does not -->
+              <!--need the generated wsdl files -->
+              <genWsdl>true</genWsdl>
               <keep>true</keep>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-        
-   </plugins>
-    
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+  
+    <plugin>
+      <groupId>com.sun.tools.jxc.maven2</groupId>
+      <artifactId>maven-jaxb-schemagen-plugin</artifactId>
+      <version>1.2</version>
+      <executions>
+        <execution>
+          <phase>generate-resources</phase>
+          <goals>
+            <goal>generate</goal>
+          </goals>
+        </execution>
+      </executions>
+
+      <configuration>
+        <project>
+          ${project}
+        </project>
+        <destdir>${project.build.directory}/schemas</destdir>
+        <srcdir>${project.build.sourceDirectory}/com/github/stratwine/domain</srcdir>
+        <verbose>true</verbose>
+      </configuration>
+    </plugin>
+  
+  
+  </plugins>
   </build>
 </project>
