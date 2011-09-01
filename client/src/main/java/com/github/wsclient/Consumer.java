@@ -10,6 +10,7 @@ import wsclient.Circle;
 import wsclient.CircleFunctions;
 import wsclient.CircleFunctionsService;
 import wsclient.GetCircle;
+import wsclient.GetCircleResponse;
 import wsclient.ObjectFactory;
 
 
@@ -106,7 +107,7 @@ public class Consumer {
 		myCircle.setRadius(5);
 		
 		ObjectFactory objectFactory = new ObjectFactory();
-		
+		GetCircle getCircle = new GetCircle();
 		System.out.println("Marshalling Circle...");
 		JAXBContext jaxbContext = JAXBContext.newInstance(Circle.class);
 		Marshaller marshaller = jaxbContext.createMarshaller();
